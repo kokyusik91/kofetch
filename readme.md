@@ -4,7 +4,7 @@
 
 ## Github
 
-내부 코드를 보고 싶으시다면, 해당 주소로 접속해 주세요! `core.ts` 파일이 메인 로직입니다. (아직은 소박합니다 😅)  
+내부 코드를 보고 싶으시다면, 해당 주소로 접속해 주세요! `core.ts` 파일이 메인 로직입니다.  
 https://github.com/kokyusik91/kofetch
 
 ## Prerequisites
@@ -28,7 +28,7 @@ $ npm install -i kofetch
 yarn을 사용한다면 다음 명령어를 실행해 주세요.
 
 ```sh
-$ yarn add --dev myLib
+$ yarn add kofetch
 ```
 
 ## Concept
@@ -246,3 +246,8 @@ axios에서는 HTTP요청의 응답이 실패했을때, `AxiosError`타입의 �
 - [ ] 에러 타입 개선 (내부)
 - [ ] 인터셉터를 각 요청마다 직접 컨트롤 할 수 있도록 만들어야함.
 - [ ] refresh token 로직 대응되는지 확인
+
+### 9. 1.0.5 버전 패치
+
+- kofetch 내부의 type들을 별도의 `type.ts`파일로 분리하였습니다.
+- kofetch 내부에 사용된 모든 타입들은 kofetch 패키지에 포함되어져 있으므로, import 해서 사용하면 됩니다.
