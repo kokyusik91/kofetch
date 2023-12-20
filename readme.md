@@ -1,6 +1,11 @@
-# Kofetch
+# Kofetch 🚀
 
 > Implement updated fetch api for using Next.js
+
+## Github
+
+내부 코드를 보고 싶으시다면, 해당 주소로 접속해 주세요! `core.ts` 파일이 메인 로직입니다. (아직은 소박합니다 😅)  
+https://github.com/kokyusik91/kofetch
 
 ## Prerequisites
 
@@ -39,7 +44,8 @@ $ yarn add --dev myLib
 const fetchInstance = Kofetch.create({});
 ```
 
-create 메서드의 객체에 넘길 수 있는 프로퍼티 `Options` 들입니다.
+create 메서드의 인자로 넘길 수 있는 프로퍼티 객체 `Options` 입니다.  
+하단에는 주요 프로퍼티들의 타입 입니다.
 
 1. `baseUrl` : 기본이 되는 url 입니다. `(optional)`
 
