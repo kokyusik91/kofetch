@@ -254,3 +254,8 @@ These are the features currently available.
 
 - The types used within kofetch have been separated into a separate `type.ts` file.
 - All types used within kofetch are included in the kofetch package, so you can import and use them.
+
+#### Version 1.0.6 Patch
+
+- readme update ver.🇺🇸
+- upgrade `generateErrorDto` function
