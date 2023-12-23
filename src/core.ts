@@ -37,23 +37,34 @@ class FetchConfig {
    * @param response fetch Response
    * @returns axiosError 객체와 마찬가지로, errorDto를 만들어서 실제 에러 핸들링을 해야하는 곳에 던져야함.
    */
-  protected async generateErrorDto(response: Response) {
-    // 에러 객체를 직접 만들어 줘서 사용측에 던져야함.
-    const stausCode = response.status;
-    const name = `응답 실패 : ${stausCode} 이유 입니다 🚨`;
-    const responseDto = await response.json();
-    const requestUrl = response.url;
-    const requestheaders = response.headers;
-    const message = response.statusText;
-    return {
-      stausCode,
-      name,
-      responseDto,
-      requestUrl,
-      requestheaders,
-      message,
-    };
+protected async generateErrorDto(response: Response) {
+  const statusCode = response.status;
+  const name = `Response failed: ${statusCode}`;
+  const requestUrl = response.url;
+  const requestHeaders = response.headers;
+  const message = response.statusText;
+
+  // Content-Type 헤더 확인
+  const contentType = response.headers.get('Content-Type');
+
+  let responseDto;
+  if (contentType && contentType.includes('application/json')) {
+    // 응답이 JSON 형식이라면 JSON으로 파싱
+    responseDto = await response.json();
+  } else {
+    // JSON 형식이 아닌 경우, 텍스트로 처리
+    responseDto = await response.text();
   }
+
+  return {
+    statusCode,
+    name,
+    responseDto,
+    requestUrl,
+    requestHeaders,
+    message,
+  };
+}
   /**
    * fetch가 일어난 다음 실행되는 함수
    * @param res Response 객체
